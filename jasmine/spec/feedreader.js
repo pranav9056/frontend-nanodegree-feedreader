@@ -54,7 +54,7 @@ $(function() {
     /* test suite named "The menu" */
 
     describe("The menu",function(){
-      /* TODO: Write a test that ensures the menu element is
+      /* a test that ensures the menu element is
        * hidden by default. You'll have to analyze the HTML and
        * the CSS to determine how we're performing the
        * hiding/showing of the menu element.
@@ -65,11 +65,24 @@ $(function() {
        });
 
 
-       /* TODO: Write a test that ensures the menu changes
+       /* a test that ensures the menu changes
         * visibility when the menu icon is clicked. This test
         * should have two expectations: does the menu display when
         * clicked and does it hide when clicked again.
         */
+        it("can be toggled",function(){
+          var menuIcon = $('.menu-icon-link');
+          // see if menu isHidden or not
+          var isHidden = bodyElement.hasClass('menu-hidden');
+          menuIcon.click();
+          // menu click should toggle hidden state
+          expect(bodyElement.hasClass('menu-hidden')).not.toBe(isHidden);
+          menuIcon.click();
+          // menu click should toggle hidden state
+          expect(bodyElement.hasClass('menu-hidden')).toBe(isHidden);
+
+
+        });
 
     });
 
